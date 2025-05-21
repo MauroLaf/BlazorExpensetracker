@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BlazorExpenseTracker.Model\BlazorExpenseTracker.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Interfases\" />
     <Folder Include="Services\" />
   </ItemGroup>

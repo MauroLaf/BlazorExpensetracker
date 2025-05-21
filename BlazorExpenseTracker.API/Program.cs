@@ -1,6 +1,17 @@
+using BlazorExpenseTracker.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Paso 1: Obtener connection string del appsettings.json
+var sqlConnectionString = builder.Configuration.GetConnectionString("SQLConnection");
+
+// Paso 2: Instanciar SqlConfiguration con ese connection string
+var sqlConnectionConfiguration = new SqlConfiguration(sqlConnectionString);
+
+// Paso 3: Registrar como singleton para que sea accesible en toda la app
+builder.Services.AddSingleton(sqlConnectionConfiguration);
+
+// Agregar servicios MVC, API, etc.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

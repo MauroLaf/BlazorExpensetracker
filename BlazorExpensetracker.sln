@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorExpensetracker.UI", "BlazorExpensetracker.UI\BlazorExpensetracker.UI.csproj", "{734A5F9D-842E-4E30-A9E0-83382C3BA0FB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorExpenseTracker.Model", "BlazorExpenseTracker.Model\BlazorExpenseTracker.Model.csproj", "{5BE2C5FB-5219-4E4E-89A5-18EA6DFCF57E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorExpenseTracker.Data", "BlazorExpenseTracker.Data\BlazorExpenseTracker.Data.csproj", "{E3A22731-48F4-4EB1-8EA4-B964971E8C64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorExpenseTracker.API", "BlazorExpenseTracker.API\BlazorExpenseTracker.API.csproj", "{DC58733B-6E08-4E87-8898-DF286EC0BC32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorExpenseTracker.UI", "BlazorExpenseTracker.UI\BlazorExpenseTracker.UI.csproj", "{3447DFD7-FB83-43AE-8044-5378AA9F3B0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{734A5F9D-842E-4E30-A9E0-83382C3BA0FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{734A5F9D-842E-4E30-A9E0-83382C3BA0FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{734A5F9D-842E-4E30-A9E0-83382C3BA0FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{734A5F9D-842E-4E30-A9E0-83382C3BA0FB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5BE2C5FB-5219-4E4E-89A5-18EA6DFCF57E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5BE2C5FB-5219-4E4E-89A5-18EA6DFCF57E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BE2C5FB-5219-4E4E-89A5-18EA6DFCF57E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{DC58733B-6E08-4E87-8898-DF286EC0BC32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC58733B-6E08-4E87-8898-DF286EC0BC32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC58733B-6E08-4E87-8898-DF286EC0BC32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3447DFD7-FB83-43AE-8044-5378AA9F3B0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3447DFD7-FB83-43AE-8044-5378AA9F3B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3447DFD7-FB83-43AE-8044-5378AA9F3B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3447DFD7-FB83-43AE-8044-5378AA9F3B0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

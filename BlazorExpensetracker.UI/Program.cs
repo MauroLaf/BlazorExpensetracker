@@ -1,4 +1,4 @@
-using BlazorExpensetracker.UI.Components;
+using BlazorExpenseTracker.UI.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

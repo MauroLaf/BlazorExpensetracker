@@ -1,0 +1,36 @@
+﻿@page "/categorydetails"
+@using BlazorExpenseTracker.Model
+
+<h1>CategoryDetails</h1>
+
+<EditForm Model="@category" OnValidSubmit="SaveCategory" FormName="categoryForm">
+    <DataAnnotationsValidator />
+    @*<ValidationSummary /> podria poner esto directamente pero queda mejor poner en una celda abajo para msjs individuales, para lista de errores summary*@
+
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>
+                <InputText @bind-Value="category.Name" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+           <td colspan="2"> <ValidationMessage For="@(() => category.Name)" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align:center">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary">Cancel</button>
+            </td>
+        </tr>
+    </table>
+</EditForm>
+
+@code {
+    Category category = new Category();
+
+    protected void SaveCategory()
+    {
+        // Aquí va la lógica para guardar
+    }
+}
