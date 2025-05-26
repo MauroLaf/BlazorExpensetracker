@@ -1,10 +1,26 @@
 using BlazorExpenseTracker.UI.Components;
+using BlazorExpenseTracker.UI.Interfaces;
+using BlazorExpenseTracker.UI.Services;
+using Microsoft.AspNetCore.Components.Server;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Registrar tu servicio
+builder.Services.AddHttpClient<ICategoryService, CategoryService>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:7113");
+});
+
+// Muy util detail errors por si falla conexion, renderizado,etc
+builder.Services.Configure<CircuitOptions>(options =>
+{
+    options.DetailedErrors = true;
+});
+
 
 var app = builder.Build();
 

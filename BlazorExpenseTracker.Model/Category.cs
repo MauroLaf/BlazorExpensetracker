@@ -9,9 +9,13 @@ namespace BlazorExpenseTracker.Model
 {
     public class Category
     {
+        [Key]
         public int Id { get; set; }
-        [Required(AllowEmptyStrings =false, ErrorMessage ="Category Name is required")]
-        [StringLength(50)]
-        public string Name { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Category Name is required")]
+        public string Name { get; set; } = string.Empty;
+
+        // Relación: Una categoría puede tener muchos gastos
+        public ICollection<Expense> Expenses { get; set; } = new List<Expense>();
     }
 }
