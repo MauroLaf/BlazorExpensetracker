@@ -1,0 +1,74 @@
+﻿@page "/expensedetails"
+@rendermode InteractiveServer
+@using BlazorExpenseTracker.Model
+@using BlazorExpenseTracker.UI.Interfaces
+@inject ICategoryService CategoryService
+@inject NavigationManager NavigationManager
+
+<h3>ExpenseDetails</h3>
+<EditForm Model="@Expense">
+    <table class="table">
+        <tr>
+            <td>Amount: </td>
+            <td><InputNumber class="form-control" @bind-Value="@Expense.Amount"></InputNumber></td>
+        </tr>
+        <tr>
+            <td>Transaction Date:</td>
+            <InputDate class="form-control" @bind-Value="@Expense.TransactionDate" />
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>
+                <InputSelect class="form-select" @bind-Value="@Expense.CategoryId">
+                    <option value="">Select Category</option>
+                    @foreach (Category item in Categories)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </InputSelect>
+            </td>
+        </tr>
+        <tr>
+            <td>Expense Type:</td>
+            <td>
+                <InputSelect class="form-select" @bind-Value="@Expense.ExpenseType">
+                    <option value="@(ExpenseType.Income)">Income</option>
+                    <option value="@(ExpenseType.Expense)">Expense</option>
+                </InputSelect>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-center">
+                <button type="submit" class="btn btn-success me-2">Save</button>
+                <button type="button" class="btn btn-secondary" @onclick="HandleCancel">Cancel</button>
+            </td>
+        </tr>
+    </table>
+</EditForm>
+
+@code {
+    private Expense Expense = new Expense(); // Empiezo con instancia de clase expense vacia
+    private IEnumerable<Category> Categories = new List<Category>(); // Creo una lista de categorias vacia
+    [Parameter]
+    public ExpenseType ExpenseType { get; set; }
+
+    protected async override Task OnInitializedAsync() // Método que se ejecuta al inicializar el componente
+
+    {
+        Categories = await CategoryService.GetAllCategoriesAsync();
+
+        Expense.CategoryId = Categories.FirstOrDefault().Id;
+        if (Categories.Any())
+        {
+            Expense.CategoryId = Categories.First().Id; //si esta vacio devolvera id, blazor ya lo convierte a string en el InputSelect
+        }
+        Expense.ExpenseType = ExpenseType;
+    }
+    // --- método HandleCancel!! ---
+    private void HandleCancel()
+    {
+        // Esto navegará de vuelta a la página principal o a donde desees.
+        // Puedes cambiar "/" por la ruta de tu página principal o de la lista de gastos.
+        NavigationManager.NavigateTo("/");
+    }
+}

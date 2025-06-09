@@ -6,14 +6,14 @@
 
 <TabControl>
     <TabTitle>
-        <img src="~/images/@(context.ImageSource).jpg" /> @context.Text
+        <img src="images/@(context.ImageSource).jpg" /> @context.Text
     </TabTitle>
 
     <ChildContent>
     <TabPage Text="Expense" ImageSource="min">
         <h3>Amounts will be negative here</h3>
     </TabPage>
-    <TabPage Text="Income">
+        <TabPage Text="Income" ImageSource="sum">
         <h3>Amounts will be positive here</h3>
     </TabPage>
     </ChildContent>

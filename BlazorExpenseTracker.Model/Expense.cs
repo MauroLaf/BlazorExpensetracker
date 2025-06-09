@@ -18,10 +18,9 @@ namespace BlazorExpenseTracker.Model
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
 
-        [StringLength(30)]
-        public string ExpenseType { get; set; }
-
         [Required]
         public DateTime TransactionDate { get; set; }
+        [Required]
+        public ExpenseType ExpenseType { get; set; }
     }
 }
