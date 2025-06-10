@@ -1,20 +1,21 @@
-﻿@page "/expensedetails"
-@rendermode InteractiveServer
+﻿@rendermode InteractiveServer
 @using BlazorExpenseTracker.Model
 @using BlazorExpenseTracker.UI.Interfaces
 @inject ICategoryService CategoryService
 @inject NavigationManager NavigationManager
 
-<h3>ExpenseDetails</h3>
 <EditForm Model="@Expense">
+    <DataAnnotationsValidator />
     <table class="table">
         <tr>
             <td>Amount: </td>
             <td><InputNumber class="form-control" @bind-Value="@Expense.Amount"></InputNumber></td>
+            <td><ValidationMessage For="@(() => Expense.Amount)" /></td>
         </tr>
         <tr>
             <td>Transaction Date:</td>
             <InputDate class="form-control" @bind-Value="@Expense.TransactionDate" />
+            <ValidationMessage For="@(() => Expense.TransactionDate)" />
         </tr>
         <tr>
             <td>Category:</td>
@@ -31,7 +32,7 @@
         <tr>
             <td>Expense Type:</td>
             <td>
-                <InputSelect class="form-select" @bind-Value="@Expense.ExpenseType">
+                <InputSelect disabled="true" class="form-select" @bind-Value="@Expense.ExpenseType">
                     <option value="@(ExpenseType.Income)">Income</option>
                     <option value="@(ExpenseType.Expense)">Expense</option>
                 </InputSelect>
